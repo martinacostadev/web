@@ -1,0 +1,327 @@
+---
+// Component Imports
+import Button from '../components/Button/index.jsx';
+import Footer from '../components/Footer/index.jsx';
+import MainHead from '../components/MainHead.astro';
+import Nav from '../components/Nav/index.jsx';
+import PortfolioPreview from '../components/PortfolioPreview/index.jsx';
+import chakrauiLogo from '/assets/chakraui.png';
+import cssLogo from '/assets/css.png';
+import htmlLogo from '/assets/html.png';
+import javascriptLogo from '/assets/javascript.png';
+import nextjsLogo from '/assets/nextjs.png';
+import reactLogo from '/assets/react.png';
+import tailwindcssLogo from '/assets/tailwindcss.png';
+
+
+// Data Fetching: List all Markdown posts in the repo.
+const blogs = await Astro.glob('./blog/**/*.md');
+const featuredBlog = blogs[0];
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+
+<html lang="en">
+	<head>
+		<MainHead title="Martín Acosta: FrontEnd Developer" description="Martín Acosta: Developer, Tech Mentor, and Streamer..." />
+		<style lang="scss">
+			$w-s: 750px;
+
+			.hero {
+				position: relative;
+				overflow: hidden;
+
+				@media (min-width: $w-s) {
+					height: 45vw;
+				}
+			}
+
+			.img {
+				display: block;
+				width: 100%;
+				height: auto;
+			}
+
+			.gradient,
+			.gradient2 {
+				background-image: url('/assets/mesh-gradient.jpg');
+				background-size: cover;
+				pointer-events: none;
+				mix-blend-mode: screen;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 2;
+			}
+
+			.gradient2 {
+				mix-blend-mode: multiply;
+				background-size: cover;
+			}
+
+			.overlay {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 10;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: center;
+
+				@media (min-width: $w-s) {
+					padding-left: 4rem;
+				}
+			}
+
+			.title {
+				font-weight: 900;
+				font-size: var(--f-u8);
+				margin-bottom: 0.5rem;
+				margin-top: 0;
+
+				@media (min-width: $w-s) {
+					font-size: var(--f-u12);
+				}
+
+				@media (max-width: $w-s) {
+					display: flex;
+					width: 100%;
+					justify-content: center;
+				}
+			}
+
+			.title:hover {
+				opacity: 0.5;
+			}
+
+			.grid {
+				display: grid;
+				grid-gap: 2rem;
+
+				@media (min-width: 1200px) {
+					grid-template-columns: 2fr 1fr;
+				}
+			}
+
+			.sectionTitle {
+				font-weight: 700;
+				font-size: var(--f-u8);
+				margin-top: 4rem;
+				margin-bottom: 2rem;
+			}
+
+			.techLogos {
+				display: flex;
+				grid-gap: 8px;
+				padding: 16px 0 48px 16px;
+				margin: 0 -16px;
+				max-width: 100%;
+				flex-wrap: wrap;
+			}
+
+			.tech {
+				min-width: 100px;
+				align-items: center;
+				background: #fff;
+				border-radius: 26px;
+				border: 2px solid #eee;
+				color: #111;
+				display: flex;
+				height: 55px;
+				font-size: 1.3rem;
+				padding: 0 32px;
+				position: relative;
+				transition: all .3s ease;
+				grid-gap: 8px;
+			}
+
+			.roles {
+				width: 100%;
+				display: flex;
+
+				@media (max-width: $w-s) {
+					justify-content: center;
+					align-items: center;
+				}
+			}
+
+			.role {
+				position: relative;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border-radius: 8px;
+				font-weight: 900;
+				color: var(--t-bg);
+				background-color: var(--t-fg);
+				padding: 0.25em 0.5em;
+				grid-gap: 1.5em;
+				z-index: 2;
+
+				// @media (min-width: $w-s) {
+				// 	font-size: var(--f-u3);
+				// }
+
+				@media (max-width: $w-s) {
+					font-size: var(--f-d2);
+				}
+
+				+ .role {
+					margin-left: 1em;
+				}
+
+				&:nth-of-type(1) {
+					.invert {
+						background-color: var(--c-pink);
+					}
+				}
+
+				&:nth-of-type(2) {
+					.invert {
+						background-color: var(--c-blue);
+					}
+				}
+
+				&:nth-of-type(3) {
+					.invert {
+						background-color: var(--c-green);
+					}
+				}
+
+				&:hover {
+					.invert {
+						clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+					}
+				}
+			}
+
+			.invert {
+				position: absolute;
+				color: var(--t-fg);
+				display: flex;
+				border-radius: 8px;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				pointer-events: none;
+				clip-path: polygon(0% 100%, 100% 100%, 100% 200%, 0% 200%);
+				transition: clip-path cubic-bezier(0.4, 0, 0.5, 1) 150ms;
+			}
+
+			.desc {
+				font-size: var(--f-u2);
+				margin-top: 1.5rem;
+				margin-bottom: 0;
+				margin-right: 16px;
+
+				@media (max-width: $w-s) {
+					padding-left: 1.5em;
+				}
+			}
+
+			.subtitle {
+				display: block;
+				font-weight: 400;
+				font-size: var(--f-d6);
+				letter-spacing: -0.0625em;
+			}
+
+			.bio {
+				line-height: 2;
+				margin-bottom: 2rem;
+
+				> span:first-of-type {
+					line-height: 1;
+					margin-bottom: 0.5em;
+					display: block;
+					font-weight: 700;
+					font-size: var(--f-u4);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Nav />
+		<header class="hero">
+			<img
+				width="1600"
+				height="1131"
+				class="img"
+				src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&q=75"
+				srcset="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&q=75 800w,https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&q=75 1200w,https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1600&q=75 1600w,https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=2400&q=75 2400w"
+				sizes="(max-width: 800px) 800px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, (max-width: 2400px) 2400px, 1200px"
+			/>
+			<div class="gradient"></div>
+			<div class="gradient2"></div>
+			<div class="overlay">
+				<h1 class="title">
+					Martín Acosta
+				</h1>
+				<div class="roles">
+					<span class="role">👩‍💻 Developer <span class="invert">👩‍💻 Developer</span></span>&nbsp;
+					<span class="role">❤️ Tech Mentor <span class="invert">❤️ Tech Mentor</span></span>&nbsp;
+					<span class="role">🔴 Streamer <span class="invert">🔴 Streamer</span></span>
+				</div>
+				<p class="desc">JavaScript, React.js, Next.js, Tailwind CSS, Chakra UI and more.</p>
+			</div>
+		</header>
+		<main class="wrapper mt4 mb4">
+			<div class="grid">
+				<div class="section">
+					<h3 class="sectionTitle">Technologies</h3>
+					<div class="techLogos">
+						<div class="tech">
+							<img src={htmlLogo} width="32" /> HTML
+						</div>
+						<div class="tech">
+							<img src={cssLogo} width="32" /> CSS 
+						</div>
+						<div class="tech">
+							<img src={javascriptLogo} width="32" /> JavaScript
+						</div>
+						<div class="tech">
+							<img src={reactLogo} width="32" /> React.js
+						</div>
+						<div class="tech">
+							<img src={nextjsLogo} width="32" /> Next.js
+						</div>
+						<div class="tech">
+							<img src={chakrauiLogo} width="32" /> ChakraUI
+						</div>
+						<div class="tech">
+							<img src={tailwindcssLogo} width="32" /> TailwindCSS
+						</div>
+					</div>
+				</div>
+
+				<div class="section">
+					<h3 class="sectionTitle">Blog</h3>
+					<PortfolioPreview blog={featuredBlog} />
+					<div class="tac mt4">
+						<a href="/blogs">
+							<Button>View All</Button>
+						</a>
+					</div>
+				</div>
+
+				<div class="section">
+					<h3 class="sectionTitle">Acerca de mí</h3>
+					<p class="bio">
+						<span>¡Hola!</span> Soy Martín Acosta, FrontEnd React.js y React Native, Tech Mentor y Twitch Streamer...
+						<a href="/about">Continuar leyendo</a>
+					</p>
+				</div>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

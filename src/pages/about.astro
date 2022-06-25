@@ -1,0 +1,76 @@
+---
+import Footer from '../components/Footer/index.jsx';
+import MainHead from '../components/MainHead.astro';
+import Nav from '../components/Nav/index.jsx';
+---
+
+<html lang="en">
+	<head>
+		<MainHead title="About | Martín Acosta" description="About Martín Acosta" />
+		<style lang="scss">
+			.heroImg {
+				max-height: 24rem;
+				object-fit: cover;
+				overflow: hidden;
+
+				img {
+					width: 100%;
+				}
+			}
+
+			.bio {
+				font-size: var(--f-u1);
+				line-height: 2;
+			}
+		</style>
+	</head>
+	<body>
+		<Nav />
+		<div class="wrapper">
+			<h1>About Martín</h1>
+			<div class="heroImg">
+				<img width="1400" height="350" src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80" />
+			</div>
+			<div class="bio wrapper wrapper__readable mt8">
+				<h3>Sobre mí</h3>
+				<p class="bio">
+					¡Hola! 👋
+				</p>
+				<p class="bio">
+					Soy Martín Acosta, FrontEnd React.js y React Native, Tech Mentor y Twitch Streamer.
+				</p>
+				<p>
+					Vivo en una ciudad de la provincia de Buenos Aires, soy soltero y sin hijos/as. Me gusta el café, el mate y la milanesa con cualquier cosa.
+				</p>
+				<h3>Mis pasiones 💖</h3>
+				<p>
+					La tecnología, en especial la programación, las redes sociales, la fotografía y filmación de videos, como hobbies tengo hacer Crossfit de lunes a viernes, ayudar a unos amigos que tienen un teatro haciendo la técnica de música, luces o atender el buffet.
+				</p>
+				<p>
+					Además, me gusta generar contenido gratuito para que cualquier persona pueda acceder. Muy agradecido de aquellas personas que también lo hicieron en su momento y me permitieron a mí aprender el 90% de lo que sé de manera autodidacta.
+				</p>
+				<h3>
+					Mis otros empleos 🌈
+				</h3>
+				<p>
+					- Trabajé atendiendo cyber-cafés.<br />
+					- Seguridad en un local de ropa en época de fiestas.<br />
+					- Organización y atendiendo la barra de tragos en fiestas de la universidad a la que iba.<br />
+					- En Producciones Audivisuales como asistente de arte, asistente de iluminación, asistente de producción y productor.<br />
+					- Hice shows de teatro de improvisación en teatros y bares.<br />
+					- Conducción de un show de karaoke, animando y cantando.<br />
+					- Organizador en feria de emprendedores.<br />
+					- Parte de la organización de un charla TED en mi ciudad.<br />
+					- Redes sociales en ONGs.<br />
+					- Redes sociales en Programa de Radio cubriendo elecciones.<br />
+					- Hice 2 Programas de Radio sobre cultura general.<br />
+					- Organizador de Torneos de Counter-Strike en mi ciudad.
+				</p>
+				<p>
+					Y creo que nada más. Haciendo memoria para esto recordé un montón de cosas 😱
+				</p>
+			</div>
+		</div>
+		<Footer />
+	</body>
+</html>
