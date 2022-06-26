@@ -119,14 +119,13 @@ const featuredBlog = blogs[0];
 			.techLogos {
 				display: flex;
 				grid-gap: 8px;
-				padding: 16px 0 48px 16px;
+				padding: 16px 0 0 16px;
 				margin: 0 -16px;
 				max-width: 100%;
 				flex-wrap: wrap;
 			}
 
 			.tech {
-				min-width: 100px;
 				align-items: center;
 				background: #fff;
 				border-radius: 26px;
@@ -135,7 +134,7 @@ const featuredBlog = blogs[0];
 				display: flex;
 				height: 55px;
 				font-size: 1.3rem;
-				padding: 0 32px;
+				padding: 0 16px;
 				position: relative;
 				transition: all .3s ease;
 				grid-gap: 8px;
@@ -170,6 +169,7 @@ const featuredBlog = blogs[0];
 
 				@media (max-width: $w-s) {
 					font-size: var(--f-d2);
+					padding: 0.5em .75em;
 				}
 
 				+ .role {
@@ -274,7 +274,7 @@ const featuredBlog = blogs[0];
 				<p class="desc">JavaScript, React.js, Next.js, Tailwind CSS, Chakra UI and more.</p>
 			</div>
 		</header>
-		<main class="wrapper mt4 mb4">
+		<main class="wrapper mb4">
 			<div class="grid">
 				<div class="section">
 					<h3 class="sectionTitle">Technologies</h3>

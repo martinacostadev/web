@@ -56,7 +56,7 @@
   margin-left: auto;
 
   + .social {
-    margin-left: 1.25rem;
+    margin-left: 0.8rem;
   }
 }
 
@@ -69,5 +69,10 @@
 
   &:hover {
     fill: var(--t-active);
+  }
+
+  @media (max-width: 800px) {
+    width: 1.5rem;
+    height: 1.5rem;
   }
 }
