@@ -30,6 +30,10 @@
     letter-spacing: 0.05em;
     font-weight: 600;
   }
+
+  @media (max-width: 800px) {
+    display: none;
+  }
 }
 
 .monogram {

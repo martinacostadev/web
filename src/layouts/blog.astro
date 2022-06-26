@@ -12,7 +12,7 @@ const { content } = Astro.props;
 		<MainHead title={content.title} description={content.description} />
 		<style lang="scss">
 			.hero {
-				padding: 8rem;
+				padding: 2rem;
 				display: flex;
 				background-color: var(--t-fg);
 				background-repeat: no-repeat;
@@ -44,7 +44,7 @@ const { content } = Astro.props;
 			}
 
 			.title {
-				font-size: var(--f-u10);
+				font-size: var(--f-u8);
 				font-weight: 900;
 				text-transform: uppercase;
 				letter-spacing: 0.0625em;
@@ -74,7 +74,7 @@ const { content } = Astro.props;
 	<body>
 		<Nav />
 		<header style={`background-image:url(${content.img})`} class="hero">
-			<h1 class="title">{content.title}</h1>
+			<h3 class="title">{content.title}</h3>
 		</header>
 		<div class="leadIn">
 			<div class="wrapper pt8 pb8 mb8">
