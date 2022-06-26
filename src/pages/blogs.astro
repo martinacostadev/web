@@ -22,7 +22,7 @@ const blogs = (await Astro.glob('./blog/**/*.md'))
 	<body>
 		<Nav />
 		<div class="wrapper">
-			<h1 class="title mt4 mb4">Blog</h1>
+			<h2 class="title mt4 mb4">Últimos artículos</h2>
 			<div class="grid">
 				{blogs.map((blog) => <PortfolioPreview blog={blog} />)}
 			</div>
