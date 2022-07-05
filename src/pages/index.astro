@@ -120,6 +120,10 @@ const featuredBlog = blogs[0];
 				margin-bottom: 2rem;
 			}
 
+			.btn {
+				color: var(--c-black);
+			}
+
 			.techLogos {
 				display: flex;
 				grid-gap: 8px;
@@ -256,7 +260,7 @@ const featuredBlog = blogs[0];
 	<body>
 		<Nav />
 		<header class="hero">
-			<img
+			<!-- <img
 				width="1600"
 				height="1131"
 				class="img"
@@ -264,7 +268,7 @@ const featuredBlog = blogs[0];
 				srcset="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&q=75 800w,https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&q=75 1200w,https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1600&q=75 1600w,https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=2400&q=75 2400w"
 				sizes="(max-width: 800px) 800px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, (max-width: 2400px) 2400px, 1200px"
 				alt="Imagen de una persona escribiendo en una notebook"
-			/>
+			/> -->
 			<div class="gradient"></div>
 			<div class="gradient2"></div>
 			<div class="overlay">
@@ -282,47 +286,47 @@ const featuredBlog = blogs[0];
 		<main class="wrapper mb4">
 			<div class="grid">
 				<div class="section">
-					<h3 class="sectionTitle">Technologies</h3>
+					<h3>Technologies</h3>
 					<div class="techLogos">
 						<div class="tech">
-							<img src={htmlLogo} width="32" alt="Logo del lenguaje HTML" /> HTML
+							<img src={htmlLogo} width="32" height="32" alt="Logo del lenguaje HTML" /> HTML
 						</div>
 						<div class="tech">
-							<img src={cssLogo} width="32" alt="Logo del lenguaje CSS" /> CSS 
+							<img src={cssLogo} width="32" height="32" alt="Logo del lenguaje CSS" /> CSS 
 						</div>
 						<div class="tech">
-							<img src={javascriptLogo} width="32" alt="Logo del lenguaje JavaScript" /> JavaScript
+							<img src={javascriptLogo} width="32" height="32" alt="Logo del lenguaje JavaScript" /> JavaScript
 						</div>
 						<div class="tech">
-							<img src={reactLogo} width="32" alt="Logo de la Librería React.js" /> React.js
+							<img src={reactLogo} width="32" height="32" alt="Logo de la Librería React.js" /> React.js
 						</div>
 						<div class="tech">
-							<img src={nextjsLogo} width="32" alt="Logo del Framework Next.js" /> Next.js
+							<img src={nextjsLogo} width="32" height="32" alt="Logo del Framework Next.js" /> Next.js
 						</div>
 						<div class="tech">
-							<img src={chakrauiLogo} width="32" alt="Logo del Framework Chakra UI" /> ChakraUI
+							<img src={chakrauiLogo} width="32" height="32" alt="Logo del Framework Chakra UI" /> ChakraUI
 						</div>
 						<div class="tech">
-							<img src={tailwindcssLogo} width="32" alt="Logo de Tailwind CSS" /> TailwindCSS
+							<img src={tailwindcssLogo} width="32" height="32" alt="Logo de Tailwind CSS" /> TailwindCSS
 						</div>
 					</div>
 				</div>
 
 				<div class="section">
-					<h3 class="sectionTitle">Blog</h3>
+					<h3>Blog</h3>
 					<PortfolioPreview blog={featuredBlog} />
-					<div class="tac mt4">
-						<a href="/blogs">
+					<div class="tac mt4 btn">
+						<a href="/blogs" class="btn">
 							<Button>View All</Button>
 						</a>
 					</div>
 				</div>
 
 				<div class="section">
-					<h3 class="sectionTitle">Acerca de mí</h3>
+					<h3>Acerca de mí</h3>
 					<p class="bio">
 						<span>¡Hola!</span> Soy Martín Acosta, FrontEnd React.js y React Native, Tech Mentor y Twitch Streamer...
-						<a href="/about">Continuar leyendo</a>
+						<a href="/about" class="btn">Continuar leyendo</a>
 					</p>
 				</div>				
 			</div>
