@@ -1,13 +1,33 @@
 ---
 import '../styles/global.scss';
-const { title = 'Martín Acosta: Personal Site', description = 'The personal site of Martín Acosta' } = Astro.props;
+const { title = 'Martín Acosta FrontEnd Developer', description = 'Martín Acosta portofolio, blog, artículos y recursos sobre Frontend, JavaScript, React, CSS; buenas prácticas de programación; consejos de programación' } = Astro.props;
 ---
 
 <meta charset="UTF-8" />
 <meta name="description" property="og:description" content={description} />
-<meta name="viewport" content="width=device-width" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+<meta name="apple-mobile-web-app-title" content="martinacosta.vercel.app">
+<meta name="application-name" content="martinacosta.vercel.app">
+<meta name="theme-color" content="#73C7FF">
+
+<meta property="og:url" content="[https://martinacosta.vercel.app/](https://martinacosta.vercel.app/)">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@martinacostadev">
+<meta name="twitter:domain" content="martinacosta.vercel.app/">
+<meta name="twitter:image" content="/favicon/apple-touch-icon.png">
+<meta name="twitter:site" content="@martinacostadev">
+
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="martinacostadev 👨🏻‍💻 | Frontend, JavaScript, React, CSS, Buenas Prácticas Programación, Consejos Programación">
+<meta property="og:image" content="/favicon/apple-touch-icon.png">
+<meta property="og:description" content={description}>
+<meta property="og:site_name" content="martinacosta.vercel.app">
+
 <title>{title}</title>
 
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 <link rel="preconnect" href="https://fonts.gstatic.com" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700;900&display=swap" rel="stylesheet" />
+<link rel="canonical" href="https://martinacosta.vercel.app/">

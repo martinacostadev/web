@@ -16,6 +16,8 @@ function Nav() {
         className={Styles.social}
         target="_blank"
         href="https://twitter.com/martinacostadev"
+        rel="noopener nofollow"
+        aria-label="Sígueme en Twitter"
       >
         <svg
           className={Styles.socialicon}
@@ -32,6 +34,8 @@ function Nav() {
         className={Styles.social}
         target="_blank"
         href="https://www.youtube.com/martinacostadev"
+        rel="noopener nofollow"
+        aria-label="Suscríbete al canal de martinacostadev"
       >
         <svg
           className={Styles.socialicon}
@@ -48,6 +52,8 @@ function Nav() {
         className={Styles.social}
         target="_blank"
         href="https://www.twitch.tv/martinacostadev"
+        rel="noopener nofollow"
+        aria-label="Twitch de @martinacostadev"
       >
         <svg
           className={Styles.socialicon}
@@ -64,6 +70,8 @@ function Nav() {
         className={Styles.social}
         target="_blank"
         href="https://github.com/martinacostadev"
+        rel="noopener nofollow"
+        aria-label="Github de @martinacostadev"
       >
         <svg
           className={Styles.socialicon}
