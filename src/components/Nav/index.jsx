@@ -10,7 +10,7 @@ function Nav() {
         Blog
       </a>
       <a className={Styles.link} href="/about">
-        About
+        Acerca de mí
       </a>
       <a
         className={Styles.social}
