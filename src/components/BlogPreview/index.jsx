@@ -1,12 +1,12 @@
 import Styles from "./styles.module.scss";
 
-function PortfolioPreview({ blog }) {
+function BlogPreview({ blog }) {
   const { frontmatter } = blog;
   return (
     <div className={Styles.card}>
       <div
         className={Styles.titleCard}
-        style={`background-image:url(${frontmatter.img})`}
+        // style={`background-image:url(${frontmatter.img})`}
       >
         <h1 className={Styles.title}>{frontmatter.title}</h1>
       </div>
@@ -21,11 +21,11 @@ function PortfolioPreview({ blog }) {
           ))}
         </div>
         <a className={Styles.link} href={blog.url}>
-          <span className={Styles.linkInner}>View</span>
+          <span className={Styles.linkInner}>Leer</span>
         </a>
       </div>
     </div>
   );
 }
 
-export default PortfolioPreview;
+export default BlogPreview;

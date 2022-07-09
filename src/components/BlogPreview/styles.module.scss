@@ -3,6 +3,8 @@
   color: var(--t-bg);
   background: var(--t-fg);
   border: 1px solid #f0f0f0;
+  max-width: 480px;
+  border-radius: 1rem;
 }
 
 .title {
@@ -52,6 +54,7 @@
   text-decoration: none;
   text-transform: uppercase;
   transition: opacity 150ms linear;
+  border-radius: 1rem;
 
   &:focus,
   &:hover {

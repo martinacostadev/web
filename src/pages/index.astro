@@ -4,7 +4,7 @@ import Button from '../components/Button/index.jsx';
 import Footer from '../components/Footer/index.jsx';
 import MainHead from '../components/MainHead.astro';
 import Nav from '../components/Nav/index.jsx';
-import PortfolioPreview from '../components/PortfolioPreview/index.jsx';
+import BlogPreview from '../components/BlogPreview/index.jsx';
 import chakrauiLogo from '/assets/chakraui.png';
 import cssLogo from '/assets/css.png';
 import htmlLogo from '/assets/html.png';
@@ -314,7 +314,7 @@ const featuredBlog = blogs[0];
 
 				<div class="section">
 					<h3>Blog</h3>
-					<PortfolioPreview blog={featuredBlog} />
+					<BlogPreview blog={featuredBlog} />
 					<div class="tac mt4 btn">
 						<a href="/blogs" class="btn">
 							<Button>View All</Button>

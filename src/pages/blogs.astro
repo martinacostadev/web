@@ -2,7 +2,7 @@
 import Footer from '../components/Footer/index.jsx';
 import MainHead from '../components/MainHead.astro';
 import Nav from '../components/Nav/index.jsx';
-import PortfolioPreview from '../components/PortfolioPreview/index.jsx';
+import BlogPreview from '../components/BlogPreview/index.jsx';
 
 const blogs = (await Astro.glob('./blog/**/*.md'))
 	.filter(({ frontmatter }) => !!frontmatter.publishDate)
@@ -24,7 +24,7 @@ const blogs = (await Astro.glob('./blog/**/*.md'))
 		<div class="wrapper">
 			<h2 class="title mt4 mb4">Últimos artículos</h2>
 			<div class="grid">
-				{blogs.map((blog) => <PortfolioPreview blog={blog} />)}
+				{blogs.map((blog) => <BlogPreview blog={blog} />)}
 			</div>
 		</div>
 		<Footer />
