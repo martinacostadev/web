@@ -1,7 +1,8 @@
-import { defineConfig } from 'astro/config';
-import preact from '@astrojs/preact';
+import preact from "@astrojs/preact";
+import robotsTxt from "astro-robots-txt";
+import { defineConfig } from "astro/config";
 
-// https://astro.build/config
 export default defineConfig({
-	integrations: [preact()],
+  integrations: [preact(), robotsTxt()],
+  site: "https://martinacosta.vercel.app",
 });
