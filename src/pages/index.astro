@@ -38,7 +38,9 @@ const featuredBlog = blogs[0];
 			}
 
 			.content {
-				padding: 1.8rem;
+				@media (min-width: $w-s) {
+					padding: 1.8rem;
+				}
 			}
 
 			.img {

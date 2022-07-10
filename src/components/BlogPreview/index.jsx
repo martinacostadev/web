@@ -13,7 +13,7 @@ function BlogPreview({ blog }) {
       <div className="pa3">
         <p className={`${Styles.desc} mt0 mb2`}>{frontmatter.description}</p>
         <div className={Styles.tags}>
-          Tagged:
+          Categoría:
           {frontmatter.tags.map((t) => (
             <div className={Styles.tag} data-tag={t}>
               {t}
