@@ -11,7 +11,7 @@ tags:
   - consejos
 ---
 
-El método conocido como pair programming (en español, programación en pareja) 👬
+El método conocido como pair programming (en español, programación en pareja) 👬, trata sobre colaborar en conjunto con al menos una persona.
 
 La idea es entrar a un canal de Discord, Slack, Meet o la aplicación de mensajería que deseen y hablar sobre alguna nueva feature, un bug a resolver o consultar algo.
 
