@@ -15,7 +15,7 @@ El método conocido como pair programming (en español, programación en pareja)
 
 La idea es entrar a un canal de Discord, Slack, Meet o la aplicación de mensajería que deseen y hablar sobre alguna nueva feature, un bug a resolver o consultar algo.
 
-💻 Hay varias dinámicas:
+## 💻 **Hay varias dinámicas**:
 
 1. Solo por voz, sin mostrar ni compartir nada o tal vez compartir código por privado y qué se comente sobre eso.
 
@@ -25,7 +25,7 @@ La idea es entrar a un canal de Discord, Slack, Meet o la aplicación de mensaje
 
 4. Para aprender React, entraba a un canal de Discord, compartía pantalla, dejaba el micrófono abierto y de vez en cuando entraba gente a ver qué estaba haciendo y así me ayudó mucha gente a resolver cosas, enseñarme y yo enseñar. ¡Fue muy enriquecedor! ❤️
 
-Algunas ventajas de hacer pair-programming:
+## **Algunas ventajas de hacer pair-programming**:
 
 - Se practican las habilidades blandas como: comunicación, escucha activa, trabajo en equipo, se explican cosas por lo que hay que aprender a explicar mejor lo que estamos queriendo hacer en cuanto a Producto y en cuanto a lo técnico.
 
@@ -35,9 +35,9 @@ Algunas ventajas de hacer pair-programming:
 
 - Ayuda en días complicados: todos y todas tenemos días dónde tenemos la mente dispersa por diferentes motivos, el hacer algo en conjunto con alguien, nos da no solo un soporte técnico sino emocional para poder afrontar cualquier tipo de tarea, una pequeña o una compleja. 🧠
 
-No sientan vergüenza en pedir ayuda y menos en días que están dispersos/as o perdidos/as. 🤗
+> No sientan vergüenza en pedir ayuda y menos en días que están dispersos/as o perdidos/as. 🤗
 
-🥺 Desventajas:
+## 🥺 **Desventajas**:
 
 - Si se abusa de la técnica se puede perder autonomía, si no son concretos/as en las preguntas se puede perder mucho tiempo, puede ser abrumador si se utiliza en exceso ya que es estar hablando con alguien mucho tiempo. ⌛️
 
