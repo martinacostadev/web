@@ -4,5 +4,5 @@ import { defineConfig } from "astro/config";
 
 export default defineConfig({
   integrations: [preact(), robotsTxt()],
-  site: "https://martinacosta.vercel.app",
+  site: "https://www.martinacosta.dev",
 });

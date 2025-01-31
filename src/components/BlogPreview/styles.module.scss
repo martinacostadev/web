@@ -1,27 +1,26 @@
 .card {
-  position: relative;
-  color: var(--t-bg);
-  background: var(--t-fg);
-  border: 1px solid #f0f0f0;
-  max-width: 480px;
-  border-radius: 1rem;
-}
-
-.title {
-  color: white;
+  display: flex;
   flex-direction: column;
-  font-size: var(--f-u2);
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.0625em;
-  padding: 0 1.5rem;
+  gap: 1rem;
+  position: relative;
+  color: var(--c-black);
+  background: var(--c-white);
+  border-radius: 1rem;
+  margin: 0 auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
 }
 
 .titleCard {
   position: relative;
-  background-size: cover;
-  background-position: 50% 100%;
-  padding-top: 2rem;
+}
+
+.title {
+  color: var(--c-black);
+  flex-direction: column;
+  font-size: var(--f-u4);
+  margin-top: 0;
 }
 
 .desc {
@@ -39,7 +38,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: var(--t-bg);
+  color: var(--c-white);
   font-size: var(--f-u2);
   font-weight: 700;
   background: rgba(0, 0, 0, 0.25);
@@ -55,7 +54,7 @@
 
     .linkInner {
       transform: translateY(0);
-      border-color: rgba(255, 255, 255, 0.625);
+      border-color: rgba(255, 255, 255, 0.7);
     }
   }
 }
@@ -66,6 +65,7 @@
   transition: transform 300ms cubic-bezier(0, 0.4, 0.6, 1),
     border-color 1s linear;
   transform: translateY(25%);
+  border-radius: 1rem;
 }
 
 .nav {
@@ -74,15 +74,19 @@
 }
 
 .tags {
+  margin-top: 0.5rem;
   font-size: var(--f-d2);
   text-transform: uppercase;
 }
 
 .tag {
+  background: var(--c-black);
+  padding: 0.25rem 0.5rem;
   display: inline-block;
   color: var(--c-yellow);
   text-transform: uppercase;
   margin-left: 0.5em;
+  border-radius: 0.25rem;
 
   &:nth-of-type(1n) {
     color: var(--c-green);

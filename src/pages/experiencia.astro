@@ -1,0 +1,38 @@
+---
+import Experience from '../components/Experience';
+import Layout from '../layouts/Layout.astro';
+
+const experienceItems = [
+  {
+    date: "2021 - Presente",
+    title: "Software Engineer Senior",
+    company: "Paisanos.io",
+    companyUrl: "https://www.paisanos.io/",
+    description: "Aplicaciones web y móviles con TypeScript, Next.js, React Native, NestJS y PostgreSQL."
+  },
+  {
+    date: "2017 - 2020",
+    title: "Software Engineer Semi Senior",
+    company: "Nexa Informática",
+    description: "Aplicación de escritorio con Visual Fox Pro 9. Aplicación web con C# y .NET. Aplicación móvil con Ionic Angular. Bases de datos SQL Server."
+  },
+  {
+    date: "2017 - 2020",
+    title: "Software Engineer Junior",
+    company: "Mahon Sistemas",
+    description: "Programación de aplicación de escritorio Visual Fox Pro 9. Aplicación web con Genexus y C#. Bases de datos SQL Server."
+  }
+];
+---
+
+<Layout title="Experiencia | Martín Acosta">
+  <h1>Experiencia</h1>
+  <Experience items={experienceItems} />
+</Layout>
+
+<style lang="scss">
+  .title {
+    font-weight: 900;
+    margin-bottom: 2rem;
+  }
+</style> 

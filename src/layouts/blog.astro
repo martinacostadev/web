@@ -1,5 +1,4 @@
 ---
-import Button from '../components/Button/index.jsx';
 import Footer from '../components/Footer/index.jsx';
 import MainHead from '../components/MainHead.astro';
 import Nav from '../components/Nav/index.jsx';
@@ -7,7 +6,7 @@ import Nav from '../components/Nav/index.jsx';
 const { content } = Astro.props;
 ---
 
-<html lang={content.lang || 'en'}>
+<html lang={content.lang || 'es'}>
 	<head>
 		<MainHead title={content.title} description={content.description} />
 		<style lang="scss">
@@ -48,6 +47,7 @@ const { content } = Astro.props;
 				font-weight: 900;
 				text-transform: uppercase;
 				letter-spacing: 0.0625em;
+				text-shadow: 0 0 10px rgba(0, 0, 0, 1);
 			}
 
 			.leadIn {
@@ -66,8 +66,11 @@ const { content } = Astro.props;
 				line-height: 2.2;
 			}
 
-			.button {
-				border-radius: 8px;
+			footer a {
+				border: 2px solid var(--c-white);
+				border-radius: 2rem;
+				padding: 0.5rem 1rem;
+				text-decoration: none;
 			}
 		</style>
 	</head>
@@ -85,9 +88,9 @@ const { content } = Astro.props;
 		<div class="wrapper wrapper__readable">
 			<div class="content"><slot /></div>
 		</div>
-		<footer class="tac mt6">
-			<a href="/blogs">
-				<Button>Ver más</Button>
+		<footer class="tac mt12">
+			<a href="/blog">
+				Ver más publicaciones
 			</a>
 		</footer>
 		<Footer />

@@ -1,336 +1,360 @@
 ---
-// Component Imports
 import BlogPreview from '../components/BlogPreview/index.jsx';
 import Button from '../components/Button/index.jsx';
-import Footer from '../components/Footer/index.jsx';
-import MainHead from '../components/MainHead.astro';
-import Nav from '../components/Nav/index.jsx';
-import chakrauiLogo from '/assets/chakraui.png';
-import cssLogo from '/assets/css.png';
-import htmlLogo from '/assets/html.png';
-import javascriptLogo from '/assets/javascript.png';
-import nextjsLogo from '/assets/nextjs.png';
-import reactLogo from '/assets/react.png';
-import tailwindcssLogo from '/assets/tailwindcss.png';
+import Experience from '../components/Experience';
+import Layout from '../layouts/Layout.astro';
+import chakrauiLogo from '/assets/chakraui.avif';
+import cssLogo from '/assets/css.avif';
+import htmlLogo from '/assets/html5.avif';
+import javascriptLogo from '/assets/javascript.avif';
+import nextjsLogo from '/assets/nextjs.avif';
+import reactLogo from '/assets/react.avif';
+import tailwindcssLogo from '/assets/tailwindcss.avif';
+import typescriptLogo from '/assets/typescript.avif';
 
-
-// Data Fetching: List all Markdown posts in the repo.
 const blogs = await Astro.glob('./blog/**/*.md');
 const featuredBlog = blogs[0];
 
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
+const experienceItems = [
+	{
+		date: "2021 - Presente",
+		title: "Software Engineer Senior",
+		company: "Paisanos.io",
+		companyUrl: "https://www.paisanos.io/",
+		description: "Aplicaciones web y móviles con TypeScript, Next.js, React Native, NestJS y PostgreSQL."
+	},
+	{
+		date: "2017 - 2020",
+		title: "Software Engineer Semi Senior",
+		company: "Nexa Informática",
+		description: "Aplicación de escritorio con Visual Fox Pro 9. Aplicación web con C# y .NET. Aplicación móvil con Ionic Angular. Bases de datos SQL Server."
+	},
+	{
+		date: "2017 - 2020",
+		title: "Software Engineer Junior",
+		company: "Mahon Sistemas",
+		description: "Programación de aplicación de escritorio Visual Fox Pro 9. Aplicación web con Genexus y C#. Bases de datos SQL Server."
+	}
+];
+
 ---
 
-<html lang="en">
-	<head>
-		<MainHead title="Martín Acosta: FrontEnd Developer" description="Martín Acosta: Developer, Tech Mentor, and Streamer..." />
-		<style lang="scss">
-			$w-s: 750px;
-
-			.hero {
-				position: relative;
-				overflow: hidden;
-
-				@media (min-width: $w-s) {
-					padding: 8rem;
-				}
-			}
-
-			.content {
-				@media (min-width: $w-s) {
-					padding: 1.8rem;
-				}
-			}
-
-			.img {
-				display: block;
-				width: 100%;
-				height: auto;
-			}
-
-			.gradient,
-			.gradient2 {
-				pointer-events: none;
-				mix-blend-mode: screen;
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				top: 0;
-				left: 0;
-				z-index: 2;
-			}
-
-			.gradient2 {
-				mix-blend-mode: multiply;
-				background-size: cover;
-			}
-
-			.overlay {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				z-index: 10;
-				display: flex;
-				flex-direction: column;
-				align-items: flex-start;
-				justify-content: center;
-
-				@media (min-width: $w-s) {
-					padding-left: 1.8rem;
-				}
-			}
-
-			.title {
-				font-weight: 900;
-				font-size: var(--f-u8);
-				margin-bottom: 0.5rem;
-				margin-top: 0;
-
-				@media (min-width: $w-s) {
-					font-size: var(--f-u12);
-				}
-
-				@media (max-width: $w-s) {
-					display: flex;
-					width: 100%;
-					justify-content: center;
-				}
-			}
-
-			.title:hover {
-				opacity: 0.5;
-			}
-
-			.grid {
-				display: grid;
-				grid-gap: 2rem;
-			}
-
-			.wide-section {
-				display: grid;
-			}
-
-			.sectionTitle {
-				font-weight: 700;
-				font-size: var(--f-u5);
-				margin-top: 4rem;
-				margin-bottom: 2rem;
-			}
-
-			.btn {
-				color: var(--c-black);
-			}
-
-			.techLogos {
-				display: flex;
-				grid-gap: 8px;
-				padding: 16px 0 0 16px;
-				margin: 0 -16px;
-				max-width: 100%;
-				flex-wrap: wrap;
-			}
-
-			.tech {
-				align-items: center;
-				background: #fff;
-				border-radius: 26px;
-				border: 2px solid #eee;
-				color: #111;
-				display: flex;
-				height: 55px;
-				font-size: 1.3rem;
-				padding: 0 16px;
-				position: relative;
-				transition: all .3s ease;
-				grid-gap: 8px;
-			}
-
-			.roles {
-				width: 100%;
-				display: flex;
-
-				@media (max-width: $w-s) {
-					justify-content: center;
-					align-items: center;
-				}
-			}
-
-			.role {
-				position: relative;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				border-radius: 8px;
-				font-weight: 900;
-				color: var(--t-bg);
-				background-color: var(--t-fg);
-				padding: 0.25em 0.5em;
-				grid-gap: 1.5em;
-				z-index: 2;
-
-				// @media (min-width: $w-s) {
-				// 	font-size: var(--f-u3);
-				// }
-
-				@media (max-width: $w-s) {
-					font-size: var(--f-d2);
-					padding: 0.5em .75em;
-				}
-
-				+ .role {
-					margin-left: 1em;
-				}
-
-				&:nth-of-type(1) {
-					.invert {
-						background-color: var(--c-pink);
-					}
-				}
-
-				&:nth-of-type(2) {
-					.invert {
-						background-color: var(--c-blue);
-					}
-				}
-
-				&:nth-of-type(3) {
-					.invert {
-						background-color: var(--c-green);
-					}
-				}
-
-				&:hover {
-					.invert {
-						clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-					}
-				}
-			}
-
-			.invert {
-				position: absolute;
-				color: var(--t-fg);
-				display: flex;
-				border-radius: 8px;
-				align-items: center;
-				justify-content: center;
-				width: 100%;
-				height: 100%;
-				top: 0;
-				left: 0;
-				pointer-events: none;
-				clip-path: polygon(0% 100%, 100% 100%, 100% 200%, 0% 200%);
-				transition: clip-path cubic-bezier(0.4, 0, 0.5, 1) 150ms;
-			}
-
-			.desc {
-				font-size: var(--f-u2);
-				margin-top: 1.5rem;
-				margin-bottom: 0;
-				margin-right: 16px;
-
-				@media (max-width: $w-s) {
-					padding-left: 1.5em;
-				}
-			}
-
-			.subtitle {
-				display: block;
-				font-weight: 400;
-				font-size: var(--f-d6);
-				letter-spacing: -0.0625em;
-			}
-
-			.bio {
-				line-height: 2;
-				margin-bottom: 2rem;
-
-				> span:first-of-type {
-					line-height: 1;
-					margin-bottom: 0.5em;
-					display: block;
-					font-weight: 700;
-					font-size: var(--f-u3);
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<Nav />
-		<header class="hero">
-			<!-- <img
-				width="1600"
-				height="1131"
-				class="img"
-				src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&q=75"
-				srcset="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&q=75 800w,https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&q=75 1200w,https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1600&q=75 1600w,https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=2400&q=75 2400w"
-				sizes="(max-width: 800px) 800px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, (max-width: 2400px) 2400px, 1200px"
-				alt="Imagen de una persona escribiendo en una notebook"
-			/> -->
-			<div class="gradient"></div>
-			<div class="gradient2"></div>
-			<div class="overlay">
-				<h1 class="title">
-					Martín Acosta
-				</h1>
-				<div class="roles">
-					<span class="role">👩‍💻 Developer <span class="invert">👩‍💻 Developer</span></span>&nbsp;
-					<span class="role">❤️ Tech Mentor <span class="invert">❤️ Tech Mentor</span></span>&nbsp;
-					<span class="role">🔴 Streamer <span class="invert">🔴 Streamer</span></span>
-				</div>
-				<p class="desc">JavaScript, React.js, Next.js, Tailwind CSS, Chakra UI and more.</p>
+<Layout title="Martín Acosta | Software Engineer Senior">
+	<header class="hero">
+		<div>
+			<h1 class="title">
+				Martín Acosta
+			</h1>
+			<div class="roles">
+				<span class="role">👩‍💻 Software Engineer</span>
 			</div>
-		</header>
-		<main class="content">
-			<div class="grid">
-				<div class="section">
-					<h3>Blog</h3>
-					<BlogPreview blog={featuredBlog} />
-					<div class="mt4 btn">
-						<a href="/blogs" class="btn">
-							<Button>Ver todo</Button>
-						</a>
-					</div>
-				</div>
+			<p class="description">+15 años de experiencia</p>
+		</div>
+		<img
+			class="img"
+			src="/assets/martin_acosta.avif"
+			srcset="/assets/martin_acosta.avif"
+			alt="Imagen de una persona escribiendo en una notebook"
+		/>
+	</header>
+	<section class="grid">
+		<div class="section">
+			<h2>Experiencia</h2>
+			<Experience items={experienceItems} />
+		</div>
 
-				<div class="section">
-					<h2>Acerca de mí</h2>
-					<p class="bio">
-						<span>¡Hola!</span> Soy Martín Acosta, FrontEnd React.js y React Native, Tech Mentor y Twitch Streamer...
-						<a href="/about" class="btn">Continuar leyendo</a>
-					</p>
+		<div class="section">
+			<h2>Acerca de mí</h2>
+			<p class="bio">
+				¡Hola! 👋 Soy Martín Acosta, Software Engineer Senior. Mas de 15 años de experiencia en programación...
+				<a href="/acerca-de" class="btn">Leer más sobre mí</a>
+			</p>
+		</div>
+
+		<div class="section">
+			<h2>Tecnologías</h2>
+			<div class="techLogos">
+				<div class="tech">
+					<img src={htmlLogo} width="32" height="32" alt="Logo del lenguaje HTML5" /> HTML
 				</div>
-				
-				<div class="section">
-					<h2>Tecnologías</h2>
-					<div class="techLogos">
-						<div class="tech">
-							<img src={htmlLogo} width="32" height="32" alt="Logo del lenguaje HTML" /> HTML
-						</div>
-						<div class="tech">
-							<img src={cssLogo} width="32" height="32" alt="Logo del lenguaje CSS" /> CSS 
-						</div>
-						<div class="tech">
-							<img src={javascriptLogo} width="32" height="32" alt="Logo del lenguaje JavaScript" /> JavaScript
-						</div>
-						<div class="tech">
-							<img src={reactLogo} width="32" height="32" alt="Logo de la Librería React.js" /> React.js
-						</div>
-						<div class="tech">
-							<img src={nextjsLogo} width="32" height="32" alt="Logo del Framework Next.js" /> Next.js
-						</div>
-						<div class="tech">
-							<img src={chakrauiLogo} width="32" height="32" alt="Logo del Framework Chakra UI" /> ChakraUI
-						</div>
-						<div class="tech">
-							<img src={tailwindcssLogo} width="32" height="32" alt="Logo de Tailwind CSS" /> TailwindCSS
-						</div>
-					</div>
+				<div class="tech">
+					<img src={cssLogo} width="32" height="32" alt="Logo del lenguaje CSS" /> CSS 
+				</div>
+				<div class="tech">
+					<img src={javascriptLogo} width="32" height="32" alt="Logo del lenguaje JavaScript" /> JavaScript
+				</div>
+				<div class="tech">
+					<img src={typescriptLogo} width="32" height="32" alt="Logo del lenguaje TypeScript" /> TypeScript
+				</div>
+				<div class="tech">
+					<img src={reactLogo} width="32" height="32" alt="Logo de la Librería React.js" /> React.js
+				</div>
+				<div class="tech">
+					<img src={nextjsLogo} width="32" height="32" alt="Logo del Framework Next.js" /> Next.js
+				</div>
+				<div class="tech">
+					<img src={chakrauiLogo} width="32" height="32" alt="Logo del Framework Chakra UI" /> ChakraUI
+				</div>
+				<div class="tech">
+					<img src={tailwindcssLogo} width="32" height="32" alt="Logo de Tailwind CSS" /> TailwindCSS
 				</div>
 			</div>
-		</main>
-		<Footer />
-	</body>
-</html>
+		</div>
+
+		<div class="section">
+			<h2>Blog</h2>
+			<BlogPreview blog={featuredBlog} />
+			<div class="mt4 btn">
+				<a href="/blog" class="btn">
+					<Button>Ver más publicaciones</Button>
+				</a>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style lang="scss">
+	$w-s: 750px;
+
+	.hero {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+		margin-bottom: 4rem;
+
+		@media (min-width: $w-s) {
+			padding-top: 1rem;
+		}
+
+		@media (max-width: $w-s) {
+			flex-direction: column;
+		}
+	}
+
+	.img {
+		display: block;
+		width: 100%;
+		max-width: 30rem;
+		height: auto;
+		border-radius: 0.5rem;
+
+		@media (max-width: $w-s) {
+			margin-bottom: 4rem;
+		}
+	}
+
+	.content {
+		@media (min-width: $w-s) {
+			padding: 1.8rem;
+		}
+	}
+
+	.gradient,
+	.gradient2 {
+		pointer-events: none;
+		mix-blend-mode: screen;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 2;
+	}
+
+	.gradient2 {
+		mix-blend-mode: multiply;
+		background-size: cover;
+	}
+
+	.overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 10;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+
+		@media (min-width: $w-s) {
+			padding-left: 1.8rem;
+		}
+	}
+
+	.title {
+		font-weight: 900;
+		margin-bottom: 0.5rem;
+		margin-top: 0;
+
+		@media (min-width: $w-s) {
+			font-size: var(--f-u6);
+		}
+
+		@media (max-width: $w-s) {
+			font-size: var(--f-u6);
+			margin-top: 2rem;
+			display: flex;
+			width: 100%;
+			justify-content: center;
+		}
+	}
+
+	.title:hover {
+		opacity: 0.5;
+	}
+
+	.role {
+		font-size: var(--f-u4);
+
+		@media (max-width: $w-s) {
+			font-size: var(--f-u2);
+		}
+	}
+
+	.description {
+		font-size: var(--f-u2);
+
+		@media (max-width: $w-s) {
+			font-size: var(--f-u1);
+		}
+	}
+
+	.grid {
+		margin-top: 4rem;
+		display: grid;
+		grid-gap: 8rem;
+	}
+
+	.wide-section {
+		display: grid;
+	}
+
+	.sectionTitle {
+		font-weight: 700;
+		font-size: var(--f-u5);
+		margin-top: 4rem;
+		margin-bottom: 2rem;
+	}
+
+	.btn {
+		color: var(--c-white);
+	}
+
+	.techLogos {
+		display: flex;
+		grid-gap: 8px;
+		padding: 16px 0 0 16px;
+		margin: 0 -16px;
+		max-width: 100%;
+		flex-wrap: wrap;
+	}
+
+	.tech {
+		align-items: center;
+		background: #fff;
+		border-radius: 26px;
+		border: 2px solid #eee;
+		color: #111;
+		display: flex;
+		height: 55px;
+		font-size: 1.3rem;
+		padding: 0 16px;
+		position: relative;
+		transition: all .3s ease;
+		grid-gap: 8px;
+	}
+
+	.tech:hover {
+		border: 0.1rem solid #000;
+		transform: scale(1.05);
+		cursor: pointer;
+	}
+
+	.bio {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		line-height: 2;
+		margin-bottom: 2rem;
+
+		> span:first-of-type {
+			line-height: 1;
+			margin-bottom: 0.5em;
+			display: block;
+			font-weight: 700;
+			font-size: var(--f-u3);
+		}
+	}
+
+	.experience {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid #e7e7e750;
+	}
+
+	.experience-item {
+		display: flex;
+		gap: 2rem;
+		
+		@media (max-width: $w-s) {
+			flex-direction: column;
+			gap: 1rem;
+		}
+	}
+
+	.timeline {
+		display: flex;
+		flex-direction: column;
+		min-width: 150px;
+	}
+
+	.timeline-dot {
+		width: 12px;
+		height: 12px;
+		background: #fff;
+		border: 2px solid #eee;
+		border-radius: 50%;
+		margin-bottom: 0.5rem;
+	}
+
+	.timeline-date {
+		color: #cacaca;
+		font-size: 0.9rem;
+	}
+
+	.experience-content {
+		flex: 1;
+	}
+
+	.experience-title {
+		font-size: var(--f-u2);
+		font-weight: 600;
+		margin: 0;
+	}
+
+	.experience-company {
+		color: var(--c-white);
+		text-decoration: none;
+		font-size: var(--f-u1);
+		opacity: 0.8;
+		display: inline-block;
+		margin-top: 0.5rem;
+		margin-bottom: 1.5rem;
+		
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	.experience-description {
+		line-height: 1.6;
+		margin: 0;
+		opacity: 0.8;
+	}
+</style>

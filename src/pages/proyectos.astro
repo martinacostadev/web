@@ -1,0 +1,136 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const projects = [
+  {
+    title: 'Frontend Help',
+    description: '¿No sabes por dónde empezar? Recomendaciones acerca de cómo comenzar y/o avanzar en el mundo Frontend.',
+    tags: ['Next.js', 'TypeScript', 'ChakraUI'],
+    link: 'https://frontendhelp.vercel.app/'
+  },
+  {
+    title: 'Github',
+    description: 'Todos mis proyectos en Github',
+    tags: ['Next.js', 'TypeScript', 'TailwindCSS', 'Shadcn UI', 'Supabase', 'Postgres'],
+    link: 'https://github.com/martinacostadev'
+  },
+];
+---
+
+<Layout title="Projectos | Martín Acosta" description="Mis proyectos">
+  <h1>Proyectos</h1>
+  <div class="projects-grid">
+    {projects.map((project) => (
+        <article class="project-card">
+          <a href={project.link} target="_blank" rel="noopener noreferrer" class="project-content">
+              <div>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+              </div>
+              <div>
+                <div class="tags">
+                  {project.tags.map((tag) => (
+                    <span class="tag">{tag}</span>
+                  ))}
+                </div>
+                <a href={project.link} target="_blank" rel="noopener noreferrer" class="project-link">
+                  Ver proyecto
+                </a>
+              </div>
+          </a>
+        </article>
+    ))}
+  </div>
+</Layout>
+
+<style>
+  .projects-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .projects-grid {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .project-card h3 {
+    margin-top: 0;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #1a202c;
+  }
+
+  .project-card p {
+    color: #000000;
+    margin-bottom: 4rem;
+    line-height: 1.6;
+  }
+
+  .project-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .tag {
+    background: #e2e8f0;
+    color: #4a5568;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+  }
+
+  .project-link {
+    display: inline-block;
+    background: #4a90e2;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s ease-in-out;
+  }
+
+  .project-link:hover {
+    background: #357abd;
+  }
+
+  @media (max-width: 768px) {
+    .projects-container {
+      padding: 1rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+</style>

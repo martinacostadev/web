@@ -1,0 +1,14 @@
+---
+import BlogPreview from '../components/BlogPreview/index.jsx';
+import Layout from '../layouts/Layout.astro';
+
+const blogs = (await Astro.glob('./blog/**/*.md'))
+	.filter(({ frontmatter }) => !!frontmatter.publishDate)
+	.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf());
+---
+<Layout title="Blog | Martín Acosta" description="Blog de Martín Acosta">
+	<h1>Últimos artículos</h1>
+	<div class="flex flex-col md:flex-row">
+		{blogs.map((blog) => <BlogPreview blog={blog} />)}
+	</div>
+</Layout>

@@ -1,33 +1,47 @@
 .nav {
+  position: sticky;
+  top: 0;
+  left: 0;
   display: flex;
-  align-items: center;
-  padding-top: 1rem;
-  padding-right: 2rem;
-  padding-bottom: 1rem;
-  padding-left: 2rem;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: var(--c-black);
+  z-index: 999;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  margin: 0 auto;
+
+  @media (max-width: 800px) {
+    border-radius: 0;
+  }
+}
+
+.navContent {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 1 rem;
 }
 
 .logolink {
   display: block;
-  color: var(--t-fg);
+  color: var(--c-white);
   text-decoration: none;
 }
 
 .link {
-  color: var(--t-fg);
+  color: var(--c-white);
   display: block;
   margin-left: 1.2rem;
   text-decoration: none;
-  font-size: var(--f-d1);
-  text-transform: uppercase;
+  font-size: 1rem;
+  transition: color 0.3s;
   padding-top: 0.75em;
   padding-bottom: 0.75em;
 
   &:focus,
   &:hover {
     color: var(--t-active);
-    font-size: var(--f-d1);
-    letter-spacing: 0.05em;
     font-weight: 600;
   }
 
@@ -43,26 +57,31 @@
   width: 2em;
   height: 2em;
   margin-right: 0.5rem;
-  color: var(--c-black);
+  color: var(--c-white);
   font-weight: 900;
   letter-spacing: -0.125rem;
   border: 3px solid currentColor;
   border-radius: 50%;
 }
 
-.monogram:hover {
-  transition: transform ease 0.3s;
-  transform: rotate(1turn);
+.socials {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
 }
 
 .social {
   display: block;
-  margin-left: auto;
 
-  + .social {
-    margin-left: 0.8rem;
+  :hover {
+    transform: scale(1.05);
+    transition: transform 100ms linear;
+    filter: grayscale(0);
   }
 }
+
+
 
 .socialicon {
   display: block;
