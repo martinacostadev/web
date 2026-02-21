@@ -7,8 +7,8 @@ const blogs = (await Astro.glob('./blog/**/*.md'))
 	.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf());
 ---
 <Layout
-	title="Blog de programación | Martín Acosta | Artículos sobre desarrollo web"
-	description="Blog de Martín Acosta sobre programación, desarrollo web, JavaScript, TypeScript, React, Next.js, buenas prácticas y consejos para desarrolladores frontend."
+	title="Blog de programación | Martín Acosta | Artículos sobre programación"
+	description="Blog de Martín Acosta sobre programación, desarrollo web, desarrollo mobile, JavaScript, TypeScript, React, Next.js, buenas prácticas y consejos para desarrolladores frontend."
 >
 	<h1>Últimos artículos</h1>
 	<div class="flex flex-col md:flex-row">
