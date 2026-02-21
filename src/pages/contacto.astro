@@ -1,0 +1,122 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const socials = [
+  {
+    name: "GitHub",
+    url: "https://github.com/martinacostadev",
+    description: "Proyectos open source y código",
+  },
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/martinacostadev/",
+    description: "Perfil profesional y networking",
+  },
+  {
+    name: "X (Twitter)",
+    url: "https://x.com/martinacostadev",
+    description: "@martinacostadev",
+  },
+  {
+    name: "YouTube",
+    url: "https://www.youtube.com/martinacostadev",
+    description: "Videos y tutoriales de programación",
+  },
+  {
+    name: "Twitch",
+    url: "https://www.twitch.tv/martinacostadev",
+    description: "Streams en vivo sobre desarrollo web",
+  },
+];
+---
+
+<Layout
+  title="Contacto | Martín Acosta | Redes sociales y links"
+  description="Contactá a Martín Acosta, Software Engineer Senior. Encontralo en GitHub, LinkedIn, X, YouTube y Twitch. Redes sociales de @martinacostadev."
+>
+  <h1>Contacto</h1>
+  <p class="subtitle">Podés encontrarme en las siguientes redes sociales.</p>
+
+  <div class="social-list">
+    {socials.map((social) => (
+      <a href={social.url} target="_blank" rel="noopener noreferrer" class="social-card">
+        <div>
+          <h3>{social.name}</h3>
+          <p>{social.description}</p>
+        </div>
+        <span class="arrow">&rarr;</span>
+      </a>
+    ))}
+  </div>
+
+  <div class="cafecito">
+    <a href="https://cafecito.app/martinacostadev" rel="noopener" target="_blank">
+      <img
+        srcset="https://cdn.cafecito.app/imgs/buttons/button_1.png 1x, https://cdn.cafecito.app/imgs/buttons/button_1_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_1_3.75x.png 3.75x"
+        src="https://cdn.cafecito.app/imgs/buttons/button_1.png"
+        alt="Invitame un café en cafecito.app"
+      />
+    </a>
+  </div>
+</Layout>
+
+<style>
+  .subtitle {
+    color: var(--text-secondary);
+    margin-top: -0.5rem;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .social-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .social-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    text-decoration: none;
+    transition: border-color 0.15s ease, background-color 0.2s ease;
+  }
+
+  .social-card:hover {
+    border-color: var(--text-muted);
+  }
+
+  .social-card h3 {
+    margin: 0 0 0.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .social-card p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .arrow {
+    color: var(--text-muted);
+    font-size: 1.25rem;
+    transition: color 0.15s ease, transform 0.15s ease;
+  }
+
+  .social-card:hover .arrow {
+    color: var(--accent);
+    transform: translateX(4px);
+  }
+
+  .cafecito {
+    margin-top: 2.5rem;
+    text-align: center;
+  }
+</style>

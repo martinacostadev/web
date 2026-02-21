@@ -1,56 +1,69 @@
 ---
 import '../styles/global.scss';
-const { title = 'Martín Acosta Software Engineer Senior', description = 'Martín Acosta portofolio, artículos y recursos sobre Frontend, JavaScript, React, CSS; buenas prácticas de programación; consejos de programación' } = Astro.props;
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+}
+
+const {
+  title = 'Martín Acosta | Software Engineer Senior | Desarrollador Frontend Argentina',
+  description = 'Martín Acosta, Software Engineer Senior con más de 15 años de experiencia en desarrollo web. Especialista en TypeScript, React, Next.js y desarrollo frontend. Buenos Aires, Argentina.',
+  canonical = Astro.url.pathname
+} = Astro.props;
+
+const siteUrl = 'https://www.martinacosta.dev';
+const canonicalUrl = `${siteUrl}${canonical === '/' ? '' : canonical}`;
 ---
 
 <meta charset="UTF-8" />
-<meta name="description" property="og:description" content={description} />
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-
-<meta name="apple-mobile-web-app-title" content="martinacosta.vercel.app">
-<meta name="application-name" content="martinacosta.vercel.app">
-<meta name="theme-color" content="#73C7FF">
-
-<meta property="og:url" content="[https://www.martinacosta.dev/](https://www.martinacosta.dev/)">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="martinacostadev 👨🏻‍💻 | Software Engineer Senior">
-<meta name="twitter:description" content="HTML, CSS JavaScript, React, artículos, recursos, buenas prácticas de programación y consejos.">
-<meta name="twitter:creator" content="@martinacostadev">
-<meta name="twitter:domain" content="martinacosta.vercel.app/">
-<meta name="twitter:image" content="https://www.martinacosta.dev/favicon/shareimage.png">
-<meta name="twitter:site" content="@martinacostadev">
-
-<meta property="og:locale" content="es_ES">
-<meta property="og:title" content="martinacostadev 👨🏻‍💻 | Software Engineer Senior">
-<meta property="og:image" itemprop="image" content="https://www.martinacosta.dev/favicon/shareimage.png">
-<meta property="og:description" content="HTML, CSS JavaScript, React, artículos, recursos, buenas prácticas de programación y consejos.">
-<meta property="og:site_name" content="martinacosta">
-
-<!-- generics -->
-<link rel="icon" href="/favicon/favicon-32.png" sizes="32x32">
-<link rel="icon" href="/favicon/favicon-57.png" sizes="57x57">
-<link rel="icon" href="/favicon/favicon-76.png" sizes="76x76">
-<link rel="icon" href="/favicon/favicon-96.png" sizes="96x96">
-<link rel="icon" href="/favicon/favicon-128.png" sizes="128x128">
-<link rel="icon" href="/favicon/favicon-192.png" sizes="192x192">
-<link rel="icon" href="/favicon/favicon-228.png" sizes="228x228">
-
-<!-- Android -->
-<link rel="shortcut icon" sizes="196x196" href="/favicon/favicon-196.png">
-
-<!-- iOS -->
-<link rel="apple-touch-icon" href="/favicon/favicon-120.png" sizes="120x120">
-<link rel="apple-touch-icon" href="favicon/favicon-152.png" sizes="152x152">
-<link rel="apple-touch-icon" href="favicon/favicon-180.png" sizes="180x180">
+<meta name="color-scheme" content="light dark">
 
 <title>{title}</title>
+<meta name="description" content={description} />
+<meta name="author" content="Martín Acosta">
+<meta name="keywords" content="Martín Acosta, desarrollador web, Software Engineer, frontend, React, Next.js, TypeScript, JavaScript, programador Argentina, desarrollo web Buenos Aires, ingeniero de software">
+<meta name="robots" content="index, follow">
 
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- Open Graph -->
+<meta property="og:url" content={canonicalUrl}>
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="Martín Acosta - Software Engineer">
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta property="og:image" content={`${siteUrl}/favicon/shareimage.png`}>
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@martinacostadev">
+<meta name="twitter:creator" content="@martinacostadev">
+<meta name="twitter:title" content={title}>
+<meta name="twitter:description" content={description}>
+<meta name="twitter:image" content={`${siteUrl}/favicon/shareimage.png`}>
+
+<!-- App -->
+<meta name="apple-mobile-web-app-title" content="martinacostadev">
+<meta name="application-name" content="martinacostadev">
+<meta name="theme-color" content="#2563eb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#60a5fa" media="(prefers-color-scheme: dark)">
+
+<!-- Favicons -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-<link rel="canonical" href="https://www.martinacosta.dev/">
+<link rel="icon" href="/favicon/favicon-32.png" sizes="32x32">
+<link rel="icon" href="/favicon/favicon-96.png" sizes="96x96">
+<link rel="icon" href="/favicon/favicon-192.png" sizes="192x192">
+<link rel="shortcut icon" sizes="196x196" href="/favicon/favicon-196.png">
+<link rel="apple-touch-icon" href="/favicon/favicon-120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="/favicon/favicon-152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="/favicon/favicon-180.png" sizes="180x180">
 
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.gstatic.com" />
-
 <link
     rel="preload"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700;900&display=swap"

@@ -3,14 +3,6 @@ import BlogPreview from '../components/BlogPreview/index.jsx';
 import Button from '../components/Button/index.jsx';
 import Experience from '../components/Experience';
 import Layout from '../layouts/Layout.astro';
-import chakrauiLogo from '/assets/chakraui.avif';
-import cssLogo from '/assets/css.avif';
-import htmlLogo from '/assets/html5.avif';
-import javascriptLogo from '/assets/javascript.avif';
-import nextjsLogo from '/assets/nextjs.avif';
-import reactLogo from '/assets/react.avif';
-import tailwindcssLogo from '/assets/tailwindcss.avif';
-import typescriptLogo from '/assets/typescript.avif';
 
 const blogs = await Astro.glob('./blog/**/*.md');
 const featuredBlog = blogs[0];
@@ -37,76 +29,92 @@ const experienceItems = [
 	}
 ];
 
+const technologies = [
+	"HTML", "CSS", "JavaScript", "TypeScript",
+	"React.js", "Next.js", "ChakraUI", "TailwindCSS"
+];
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "Person",
+	"name": "Martín Acosta",
+	"url": "https://www.martinacosta.dev",
+	"image": "https://www.martinacosta.dev/assets/martin_acosta.avif",
+	"jobTitle": "Software Engineer Senior",
+	"worksFor": {
+		"@type": "Organization",
+		"name": "Paisanos.io",
+		"url": "https://www.paisanos.io/"
+	},
+	"description": "Software Engineer Senior con más de 15 años de experiencia en desarrollo web frontend. Especialista en TypeScript, React, Next.js.",
+	"knowsAbout": ["JavaScript", "TypeScript", "React", "Next.js", "HTML", "CSS", "TailwindCSS", "Node.js", "PostgreSQL", "Desarrollo Web", "Frontend"],
+	"address": {
+		"@type": "PostalAddress",
+		"addressRegion": "Buenos Aires",
+		"addressCountry": "AR"
+	},
+	"sameAs": [
+		"https://github.com/martinacostadev",
+		"https://www.linkedin.com/in/martinacostadev/",
+		"https://x.com/martinacostadev",
+		"https://www.youtube.com/martinacostadev",
+		"https://www.twitch.tv/martinacostadev"
+	]
+};
 ---
 
-<Layout title="Martín Acosta | Software Engineer Senior">
+<Layout
+	title="Martín Acosta | Software Engineer Senior | Desarrollador Frontend Argentina"
+	description="Martín Acosta, Software Engineer Senior con más de 15 años de experiencia en desarrollo web. Especialista en TypeScript, React, Next.js. Buenos Aires, Argentina."
+>
+	<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
 	<header class="hero">
 		<div>
-			<h1 class="title">
-				Martín Acosta
-			</h1>
-			<div class="roles">
-				<span class="role">👩‍💻 Software Engineer Senior</span>
-			</div>
-			<p class="description">+15 años de experiencia</p>
+			<h1 class="title">Martín Acosta</h1>
+			<p class="role">Software Engineer Senior</p>
+			<p class="description">+15 años de experiencia en desarrollo web</p>
 		</div>
 		<img
 			class="img"
 			src="/assets/martin_acosta.avif"
 			srcset="/assets/martin_acosta.avif"
-			alt="Imagen de una persona escribiendo en una notebook"
+			alt="Martín Acosta, Software Engineer Senior y desarrollador frontend"
+			width="256"
+			height="256"
+			loading="eager"
 		/>
 	</header>
-	<section class="grid">
+
+	<section class="sections">
 		<div class="section">
-			<h2>Experiencia</h2>
+			<h2 class="section-title">Experiencia profesional</h2>
 			<Experience items={experienceItems} />
 		</div>
 
 		<div class="section">
-			<h1>Acerca de mí</h1>
+			<h2 class="section-title">Acerca de mí</h2>
 			<p class="bio">
-				¡Hola! 👋 Soy Martín Acosta, Software Engineer Senior. Mas de 15 años de experiencia en programación...
-				<a href="/acerca-de" class="btn">Leer más sobre mí</a>
+				Soy Martín Acosta, Software Engineer Senior con más de 15 años de experiencia en desarrollo web y programación. Especializado en tecnologías frontend como React, Next.js y TypeScript.
 			</p>
+			<a href="/acerca-de" class="read-more">Leer más sobre mí &rarr;</a>
 		</div>
 
 		<div class="section">
-			<h2>Tecnologías</h2>
+			<h2 class="section-title">Tecnologías y habilidades</h2>
 			<div class="techLogos">
-				<div class="tech">
-					<img src={htmlLogo} width="32" height="32" alt="Logo del lenguaje HTML5" /> HTML
-				</div>
-				<div class="tech">
-					<img src={cssLogo} width="32" height="32" alt="Logo del lenguaje CSS" /> CSS 
-				</div>
-				<div class="tech">
-					<img src={javascriptLogo} width="32" height="32" alt="Logo del lenguaje JavaScript" /> JavaScript
-				</div>
-				<div class="tech">
-					<img src={typescriptLogo} width="32" height="32" alt="Logo del lenguaje TypeScript" /> TypeScript
-				</div>
-				<div class="tech">
-					<img src={reactLogo} width="32" height="32" alt="Logo de la Librería React.js" /> React.js
-				</div>
-				<div class="tech">
-					<img src={nextjsLogo} width="32" height="32" alt="Logo del Framework Next.js" /> Next.js
-				</div>
-				<div class="tech">
-					<img src={chakrauiLogo} width="32" height="32" alt="Logo del Framework Chakra UI" /> ChakraUI
-				</div>
-				<div class="tech">
-					<img src={tailwindcssLogo} width="32" height="32" alt="Logo de Tailwind CSS" /> TailwindCSS
-				</div>
+				{technologies.map((tech) => (
+					<span class="tech">{tech}</span>
+				))}
 			</div>
 		</div>
 
 		<div class="section">
-			<h2>Blog</h2>
+			<h2 class="section-title">Blog de programación</h2>
 			<BlogPreview blog={featuredBlog} />
-			<div class="mt4 btn">
-				<a href="/blog" class="btn">
-					<Button>Ver más publicaciones</Button>
+			<div class="mt4">
+				<a href="/blog" class="read-more">
+					Ver más publicaciones &rarr;
 				</a>
 			</div>
 		</div>
@@ -114,247 +122,97 @@ const experienceItems = [
 </Layout>
 
 <style lang="scss">
-	$w-s: 750px;
-
 	.hero {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		gap: 2rem;
-		// margin-bottom: 4rem;
+		margin-bottom: 3rem;
 
-		@media (min-width: $w-s) {
-			padding-top: 1rem;
-		}
-
-		@media (max-width: $w-s) {
+		@media (max-width: 680px) {
 			flex-direction: column;
+			text-align: center;
 		}
 	}
 
 	.img {
 		display: block;
 		width: 100%;
-		max-width: 30rem;
+		max-width: 16rem;
 		height: auto;
-		border-radius: 0.5rem;
-
-		@media (max-width: $w-s) {
-			margin-bottom: 4rem;
-		}
-	}
-
-	.content {
-		@media (min-width: $w-s) {
-			padding: 1.8rem;
-		}
-	}
-
-	.gradient,
-	.gradient2 {
-		pointer-events: none;
-		mix-blend-mode: screen;
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: 2;
-	}
-
-	.gradient2 {
-		mix-blend-mode: multiply;
-		background-size: cover;
-	}
-
-	.overlay {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: 10;
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		justify-content: center;
-
-		@media (min-width: $w-s) {
-			padding-left: 1.8rem;
-		}
 	}
 
 	.title {
 		font-weight: 900;
-		margin-bottom: 0.5rem;
+		font-size: var(--f-u6);
+		margin-bottom: 0.25rem;
 		margin-top: 0;
-
-		@media (min-width: $w-s) {
-			font-size: var(--f-u6);
-		}
-
-		@media (max-width: $w-s) {
-			font-size: var(--f-u6);
-			margin-top: 2rem;
-			display: flex;
-			width: 100%;
-			justify-content: center;
-		}
-	}
-
-	.title:hover {
-		opacity: 0.5;
+		color: var(--text-primary);
 	}
 
 	.role {
-		font-size: var(--f-u4);
-
-		@media (max-width: $w-s) {
-			font-size: var(--f-u2);
-		}
+		font-size: var(--f-u2);
+		color: var(--text-secondary);
+		margin: 0.25rem 0;
 	}
 
 	.description {
-		font-size: var(--f-u2);
-
-		@media (max-width: $w-s) {
-			font-size: var(--f-u1);
-		}
+		font-size: var(--f-u1);
+		color: var(--text-muted);
+		margin: 0.25rem 0;
 	}
 
-	.grid {
-		margin-top: 4rem;
-		display: grid;
-		grid-gap: 8rem;
+	.sections {
+		display: flex;
+		flex-direction: column;
+		gap: 4rem;
 	}
 
-	.wide-section {
-		display: grid;
-	}
-
-	.sectionTitle {
+	.section-title {
+		font-size: var(--f-u3);
 		font-weight: 700;
-		font-size: var(--f-u5);
-		margin-top: 4rem;
-		margin-bottom: 2rem;
+		margin-top: 0;
+		margin-bottom: 1rem;
+		color: var(--text-primary);
 	}
 
-	.btn {
-		color: var(--c-white);
+	.bio {
+		line-height: 1.8;
+		color: var(--text-secondary);
+		margin: 0;
+	}
+
+	.read-more {
+		display: inline-block;
+		margin-top: 0.75rem;
+		color: var(--accent);
+		text-decoration: none;
+		font-size: 0.9rem;
+
+		&:hover {
+			color: var(--accent-hover);
+		}
 	}
 
 	.techLogos {
 		display: flex;
-		grid-gap: 8px;
-		padding: 16px 0 0 16px;
-		margin: 0 -16px;
-		max-width: 100%;
+		gap: 0.5rem;
 		flex-wrap: wrap;
 	}
 
 	.tech {
+		display: inline-flex;
 		align-items: center;
-		background: #fff;
-		border-radius: 26px;
-		border: 2px solid #eee;
-		color: #111;
-		display: flex;
-		height: 55px;
-		font-size: 1.3rem;
-		padding: 0 16px;
-		position: relative;
-		transition: all .3s ease;
-		grid-gap: 8px;
-	}
+		background: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-radius: 2rem;
+		color: var(--text-primary);
+		font-size: 0.875rem;
+		padding: 0.5rem 1rem;
+		transition: border-color 0.15s ease, background-color 0.2s ease;
 
-	.tech:hover {
-		border: 0.1rem solid #000;
-		transform: scale(1.05);
-		cursor: pointer;
-	}
-
-	.bio {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-		line-height: 2;
-		margin-bottom: 2rem;
-
-		> span:first-of-type {
-			line-height: 1;
-			margin-bottom: 0.5em;
-			display: block;
-			font-weight: 700;
-			font-size: var(--f-u3);
-		}
-	}
-
-	.experience {
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
-		padding-top: 2rem;
-		padding-bottom: 2rem;
-		border-bottom: 1px solid #e7e7e750;
-	}
-
-	.experience-item {
-		display: flex;
-		gap: 2rem;
-		
-		@media (max-width: $w-s) {
-			flex-direction: column;
-			gap: 1rem;
-		}
-	}
-
-	.timeline {
-		display: flex;
-		flex-direction: column;
-		min-width: 150px;
-	}
-
-	.timeline-dot {
-		width: 12px;
-		height: 12px;
-		background: #fff;
-		border: 2px solid #eee;
-		border-radius: 50%;
-		margin-bottom: 0.5rem;
-	}
-
-	.timeline-date {
-		color: #cacaca;
-		font-size: 0.9rem;
-	}
-
-	.experience-content {
-		flex: 1;
-	}
-
-	.experience-title {
-		font-size: var(--f-u2);
-		font-weight: 600;
-		margin: 0;
-	}
-
-	.experience-company {
-		color: var(--c-white);
-		text-decoration: none;
-		font-size: var(--f-u1);
-		opacity: 0.8;
-		display: inline-block;
-		margin-top: 0.5rem;
-		margin-bottom: 1.5rem;
-		
 		&:hover {
-			opacity: 1;
+			border-color: var(--text-muted);
 		}
-	}
-
-	.experience-description {
-		line-height: 1.6;
-		margin: 0;
-		opacity: 0.8;
 	}
 </style>

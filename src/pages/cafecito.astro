@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Cafecito | Martín Acosta | Invitame un café"
+  description="Si mi contenido sobre programación y desarrollo web te resultó útil, podés invitarme un cafecito como forma de apoyo. Cada café me motiva a seguir creando contenido gratuito."
+>
+  <h1>Invitame un cafecito</h1>
+
+  <div class="content">
+    <p>
+      <strong>Cafecito</strong> es una plataforma argentina que permite apoyar a creadores de contenido con pequeñas donaciones, como si les invitaras un café.
+    </p>
+    <p>
+      Si alguno de mis artículos, videos, streams o proyectos open source te ayudaron a aprender algo nuevo o a resolver un problema, podés invitarme un cafecito como forma de agradecimiento.
+    </p>
+    <p>
+      Cada café me motiva a seguir generando contenido gratuito sobre programación, desarrollo web y tecnología para que todos puedan acceder.
+    </p>
+
+    <div class="cafecito-btn">
+      <a href="https://cafecito.app/martinacostadev" rel="noopener" target="_blank">
+        <img
+          srcset="https://cdn.cafecito.app/imgs/buttons/button_1.png 1x, https://cdn.cafecito.app/imgs/buttons/button_1_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_1_3.75x.png 3.75x"
+          src="https://cdn.cafecito.app/imgs/buttons/button_1.png"
+          alt="Invitame un café en cafecito.app"
+        />
+      </a>
+    </div>
+
+    <p class="thanks">
+      ¡Muchas gracias por el apoyo!
+    </p>
+  </div>
+</Layout>
+
+<style>
+  .content {
+    line-height: 1.8;
+    color: var(--text-secondary);
+    font-size: 1rem;
+  }
+
+  .content p {
+    margin-bottom: 1.25rem;
+  }
+
+  .cafecito-btn {
+    margin: 2rem 0;
+  }
+
+  .cafecito-btn img {
+    max-width: 220px;
+    height: auto;
+  }
+
+  .thanks {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+</style>

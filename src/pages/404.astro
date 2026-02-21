@@ -3,20 +3,43 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="404: Not Found">
-	<main class="flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center">
-		<div class="container flex flex-col items-center justify-center gap-4 px-4 text-center md:px-6">
-			<h1 class="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">404</h1>
-			<p class="text-lg text-muted-foreground sm:text-xl">
-				Ups! La página que buscas no existe.
-			</p>
-			<a
-				href="/"
-				class="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-				tabindex={0}
-				aria-label="Return to homepage"
-			>
-				Ir a inicio
-			</a>
-		</div>
-	</main>
+	<div class="not-found">
+		<h1>404</h1>
+		<p>Ups! La página que buscas no existe.</p>
+		<a href="/">Ir a inicio &rarr;</a>
+	</div>
 </Layout>
+
+<style>
+  .not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    text-align: center;
+  }
+
+  .not-found h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+
+  .not-found p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .not-found a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+
+  .not-found a:hover {
+    color: var(--accent-hover);
+  }
+</style>

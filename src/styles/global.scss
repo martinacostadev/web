@@ -1,16 +1,6 @@
 // Tokens
 :root {
-  // (c)olor
-  --c-black: #05091e;
-  --c-blue: #46b4ff;
-  --c-gray: #90aab7;
-  --c-green: #9ef2cb;
-  --c-pink: #ffb8d9;
-  --c-orange: #ffb7a3;
-  --c-yellow: #ffdace;
-  --c-white: #fff;
-
-  // (f)ont
+  // (f)ont scale
   --f-u18: 11.390625em;
   --f-u17: 9.950627481136905em;
   --f-u16: 8.692673779389363em;
@@ -48,25 +38,88 @@
   --f-d17: 0.10049617492923625em;
   --f-d18: 0.0877914951989026em;
 
-  // (t)heme
-  --t-fg: var(--c-black);
-  --t-bg: var(--c-white);
-  --t-subdue: var(--c-gray);
-  --t-active: var(--c-blue);
+  // Static palette
+  --c-blue: #46b4ff;
+  --c-green: #9ef2cb;
+  --c-pink: #ffb8d9;
+  --c-orange: #ffb7a3;
+  --c-yellow: #ffdace;
+}
+
+// Light theme (default)
+:root, [data-theme="light"] {
+  --bg-primary: #fafafa;
+  --bg-secondary: #ffffff;
+  --bg-nav: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #555555;
+  --text-muted: #888888;
+  --border-color: #e5e5e5;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --card-bg: #ffffff;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --tag-bg: #f0f0f0;
+  --tag-text: #444444;
+  --icon-fill: #666666;
+  --icon-hover: #2563eb;
+  --code-bg: #f5f5f5;
+  --hover-bg: #f0f0f0;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #141414;
+  --bg-nav: #111111;
+  --text-primary: #e5e5e5;
+  --text-secondary: #a0a0a0;
+  --text-muted: #666666;
+  --border-color: #262626;
+  --accent: #60a5fa;
+  --accent-hover: #93c5fd;
+  --card-bg: #171717;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --tag-bg: #262626;
+  --tag-text: #cccccc;
+  --icon-fill: #888888;
+  --icon-hover: #60a5fa;
+  --code-bg: #1a1a1a;
+  --hover-bg: #1f1f1f;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #141414;
+    --bg-nav: #111111;
+    --text-primary: #e5e5e5;
+    --text-secondary: #a0a0a0;
+    --text-muted: #666666;
+    --border-color: #262626;
+    --accent: #60a5fa;
+    --accent-hover: #93c5fd;
+    --card-bg: #171717;
+    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --tag-bg: #262626;
+    --tag-text: #cccccc;
+    --icon-fill: #888888;
+    --icon-hover: #60a5fa;
+    --code-bg: #1a1a1a;
+    --hover-bg: #1f1f1f;
+  }
 }
 
 // Base
 
 body {
-  color: var(--t-bg);
+  color: var(--text-primary);
   font-family: "Inter", "system-ui", sans-serif;
-  background: #0f0c29;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: var(--bg-primary);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 * {
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 
 img {
@@ -75,27 +128,22 @@ img {
 }
 
 a {
-  color: var(--t-active);
+  color: var(--accent);
+
+  &:hover {
+    color: var(--accent-hover);
+  }
 }
 
 h1 {
-  font-size: var(--f-u8);
+  font-size: var(--f-u6);
+}
+
+h1, h2, h3 {
+  color: var(--text-primary);
 }
 
 // Utils
-
-// color
-$colors: "black", "blue", "white";
-@each $color in $colors {
-  // text color
-  .tc-#{$color} {
-    color: var(--c-#{color});
-  }
-  // background color
-  .bg-#{$color} {
-    background-color: var(--c-#{color});
-  }
-}
 
 // font size
 @for $i from 0 through 18 {
@@ -150,16 +198,4 @@ $colors: "black", "blue", "white";
 }
 .tar {
   text-align: right;
-}
-
-// wrapper
-.wrapper {
-  max-width: 80em;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-.wrapper__readable {
-  max-width: 50em;
 }
